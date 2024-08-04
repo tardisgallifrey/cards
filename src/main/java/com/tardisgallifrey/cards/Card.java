@@ -35,9 +35,9 @@ public class Card {
         ArrayList<Card> deck = new ArrayList<>(52);
 
         String[] suit = {"H", "D", "S", "C"};
-        String[] name = {"2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K", "A"};
+        String[] name = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
         for(int num = 0; num < 4; num++ ){
-            for(int posNum = 0; posNum < 12; posNum++) {
+            for(int posNum = 0; posNum < 13; posNum++) {
                 deck.add(new Card(suit[num], name[posNum], num + 2));
             }
         }
@@ -47,13 +47,23 @@ public class Card {
 
     public static ArrayList<Card> shuffleDeck(ArrayList<Card> deck){
         Random rand = new Random();
-        ArrayList<Card> newDeck = new ArrayList<>();
-        for(int i = 0; i < deck.size(); i ++){
-            int randIndex = rand.nextInt(deck.size() - i);
-            newDeck.add(deck.get(randIndex));
-            deck.remove(randIndex);
+        ArrayList<Card> newDeck = new ArrayList<>(52);
+        while(deck.size()>0){
+            int index = rand.nextInt(deck.size());
+            Card removedCard = deck.remove(index);
+            newDeck.add(removedCard);
         }
 
         return newDeck;
+    }
+
+    public static Game dealHand(Game game, int numCards){
+        ArrayList<Card> hand = new ArrayList<>(numCards);
+        for(int index = 0; index < numCards; index++){
+            game.player1Hand.add(game.deck.get(index));
+
+        }
+
+        return game;
     }
 }

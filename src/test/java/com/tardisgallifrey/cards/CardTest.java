@@ -11,11 +11,14 @@ class CardTest {
 
     @Test
     void shuffleReturnsUniqueDeck() {
-        ArrayList<Card> deck = Card.createDeck();
-        ArrayList<Card> deck2 = Card.shuffleDeck(deck);
+        ArrayList<Card> deck = new ArrayList<>(52);
+        ArrayList<Card> deck2 = new ArrayList<>(52);
+        deck = Card.createDeck();
+        deck2 = Card.shuffleDeck(deck);
 
         Set<Card> set = new HashSet<>();
         for(Card each: deck2) assertTrue(set.add(each));
+        assertEquals(52, deck2.size());
 
     }
 }

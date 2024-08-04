@@ -1,17 +1,17 @@
 package com.tardisgallifrey.cards;
 
 
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<Card> deck = Card.createDeck();
-        ArrayList<Card> deck2 = Card.shuffleDeck(deck);
+        Game game = new Game();
+        game.deck = Card.createDeck();
 
-        for(Card token : deck2){
+
+        Game game2 = new Game();
+        game2.deck = Card.shuffleDeck(game.deck);
+        for(Card token : game2.deck){
             System.out.println(token.getName()+token.getSuit());
         }
-
     }
 }
