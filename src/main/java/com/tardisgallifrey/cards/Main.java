@@ -7,12 +7,6 @@ public class Main {
         Game game = new Game();
 
         game.shuffleDeck();
-        for(Card card : game.deck){
-            System.out.println(card.name()+card.suit());
-        }
-
-        System.out.println();
-        System.out.println();
 
         game.dealHand(6);
         for(Card card : game.player1Hand){
@@ -20,7 +14,17 @@ public class Main {
         }
 
         System.out.println();
-        for(Card card : game.deck){
+        for(Card card : game.player2Hand){
+            System.out.println(card.name()+card.suit());
+        }
+
+        System.out.println();
+        for(Card card : game.player3Hand){
+            System.out.println(card.name()+card.suit());
+        };
+
+        System.out.println();
+        for(Card card : game.player4Hand){
             System.out.println(card.name()+card.suit());
         }
     }
