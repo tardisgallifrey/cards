@@ -46,4 +46,24 @@ public class Game {
             player4Hand.add(deck.remove(index + 3));
         }
     }
+
+   public void printHand(ArrayList<Card> playerHand){
+        int size = playerHand.size();
+
+        System.out.println("Player Hand");
+        for(int i = 0; i<size + 6; i++){
+            System.out.print(" *");
+        }
+        System.out.println();
+        System.out.print(" * ");
+        for(Card card : playerHand){
+            System.out.print(" "+card.name()+card.suit());
+        }
+        System.out.println("  *");
+        for(int i = 0; i<size + 6; i++){
+           System.out.print(" *");
+        }
+        System.out.println();
+   }
+
 }
