@@ -10,6 +10,8 @@ public class Game {
     public ArrayList<Card> player3Hand = new ArrayList<>();
     public ArrayList<Card> player4Hand = new ArrayList<>();
 
+    String hand = "";
+
     //Instantiation calls constructor
     //which creates new deck/all cards in order
     public Game() {
@@ -47,23 +49,24 @@ public class Game {
         }
     }
 
-   public void printHand(ArrayList<Card> playerHand){
-        int size = playerHand.size();
+   public void printHand(ArrayList<Card> playerHand, int player){
 
-        System.out.println("Player Hand");
-        for(int i = 0; i<size + 6; i++){
-            System.out.print(" *");
-        }
-        System.out.println();
-        System.out.print(" * ");
         for(Card card : playerHand){
-            System.out.print(" "+card.name()+card.suit());
+            this.hand += " "+card.name()+card.suit();
         }
-        System.out.println("  *");
-        for(int i = 0; i<size + 6; i++){
-           System.out.print(" *");
+        System.out.println("Player "+player+" Hand");
+        for(int i = 0; i< playerHand.size(); i++){
+        System.out.print("* * ");
         }
         System.out.println();
+        System.out.println("* "+this.hand);
+        for(int i = 0; i< playerHand.size(); i++){
+           System.out.print("* * ");
+        }
+        System.out.println();
+        this.hand = "";
+
+
    }
 
 }
