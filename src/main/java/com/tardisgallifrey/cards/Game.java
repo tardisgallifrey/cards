@@ -10,6 +10,7 @@ public class Game {
     public ArrayList<Card> player3Hand = new ArrayList<>();
     public ArrayList<Card> player4Hand = new ArrayList<>();
 
+    //Intermediate string for displaying portions of a hand
     String hand = "";
 
     //Instantiation calls constructor
@@ -27,6 +28,7 @@ public class Game {
 
 
     //shuffle the deck
+    //TODO: create loop to shuffle X times
     public void shuffleDeck(){
         Random rand = new Random();
         ArrayList<Card> newDeck = new ArrayList<>(52);
