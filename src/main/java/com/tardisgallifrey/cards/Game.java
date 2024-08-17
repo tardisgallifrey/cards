@@ -28,7 +28,6 @@ public class Game {
 
 
     //shuffle the deck
-    //TODO: create loop to shuffle X times
     public void shuffleDeck(){
         Random rand = new Random();
         ArrayList<Card> newDeck = new ArrayList<>(52);
@@ -38,6 +37,10 @@ public class Game {
             newDeck.add(removedCard);
         }
         this.deck = newDeck;
+    }
+
+    public Card flip(){
+        return this.deck.remove(0);
     }
 
     //deal a hand to each player of "size"

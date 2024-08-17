@@ -4,19 +4,31 @@ package com.tardisgallifrey.cards;
 public class Main {
     public static void main(String[] args) {
 
+        //Instantiate a card game object
         Game game = new Game();
 
-        game.shuffleDeck();
+        //shuffle three times
+        for(int i = 0; i < 3; i++) {
+            game.shuffleDeck();
+        }
 
-        game.dealHand(10);
+        //deal all four players six cards
+        game.dealHand(6);
 
+        //print player 1's hand
         game.printHand(game.player1Hand, 1);
         System.out.println();
-        game.printHand(game.player2Hand, 2);
+
+        //flip top card of deck
+        Card card = game.flip();
+        System.out.println("Card on top flipped: "+card.toString());
+
+        //flip top card of deck and add to player 1 hand
+        game.player1Hand.add(game.flip());
+
         System.out.println();
-        game.printHand(game.player3Hand, 3);
-        System.out.println();
-        game.printHand(game.player4Hand, 4);
+
+        game.printHand(game.player1Hand, 1);
 
     }
 }
